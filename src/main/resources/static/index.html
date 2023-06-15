@@ -2,28 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <title>Reto 3</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script rel="stylesheet" type="text/css" src="/webjars/jquery/jquery.min.js"></script>
+    <script rel="stylesheet" type="text/css" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-    <ul>
-        <li>
-            <a href="carros.html">Carros</a>
-        </li>
-        <li>
-            <a href="clientes.html">Clientes</a>
-        </li>
-        <li>
-            <a href="gamas.html">Clientes</a>
-        </li>
-        <li>
-            <a href="messages.html">Clientes</a>
-        </li>
-        <li>
-            <a href="reservas.html">Clientes</a>
-        </li>
-        <li>
-            <a href="scores.html">Clientes</a>
-        </li>
-    </ul>
+    <h1>Bienvenido a Carros 4.0</h1>
+    <p class="container unathenticated">
+        Para iniciar sesión Github haz click <a href="/oauth2/authorization/github">aquí</a>
+    </p>
+    <p class="fs-2 container authenticated" style="display: none">
+        Bienvenido <span id="usuario"></span><br>
+        <button onclick="location.href='homePage.html';">Continuar</button>
+    </p>
+</div>
 </body>
+<script type="text/javascript">
+    $.get("/user", function(data){
+        $("#usuario").html(data.name);
+        $(".unathenticated").hide();
+        $(".authenticated").show();
+    });
+</script>
 </html>
